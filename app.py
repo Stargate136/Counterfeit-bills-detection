@@ -42,11 +42,11 @@ def main():
         # Vérifications après avoir cliqué sur le bouton de soumission
         if submit_button:
             if not length:
-                st.warning("Veuillez entrer la longueur du billet")
+                st.warning("Veuillez entrer la longueur du billet (en mm)")
             if not margin_low:
-                st.warning("Veuillez entrer la marge en bas du billet")
+                st.warning("Veuillez entrer la marge en bas du billet (en mm)")
             if not margin_up:
-                st.warning("Veuillez entrer la marge en haut du billet")
+                st.warning("Veuillez entrer la marge en haut du billet (en mm)")
             else:
                 pred, proba = predict(model, length, margin_low, margin_up)
                 if pred:
