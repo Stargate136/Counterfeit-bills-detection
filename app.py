@@ -32,9 +32,9 @@ def main():
     with st.form("features"):
     
         # Champs du formulaire
-        length = st.number_input("Longueur du billet")
-        margin_low = st.number_input("Marge en bas du billet")
-        margin_up = st.number_input("Marge en haut du billet")
+        length = st.number_input("Longueur du billet (en mm)")
+        margin_low = st.number_input("Marge en bas du billet (en mm)")
+        margin_up = st.number_input("Marge en haut du billet (en mm)")
         
         # Bouton de soumission
         submit_button = st.form_submit_button(label='Vérification')
@@ -42,11 +42,11 @@ def main():
         # Vérifications après avoir cliqué sur le bouton de soumission
         if submit_button:
             if not length:
-                st.warning("Veuillez entrer la longueur du billet (en mm)")
+                st.warning("Veuillez entrer la longueur du billet")
             if not margin_low:
-                st.warning("Veuillez entrer la marge en bas du billet (en mm)")
+                st.warning("Veuillez entrer la marge en bas du billet")
             if not margin_up:
-                st.warning("Veuillez entrer la marge en haut du billet (en mm)")
+                st.warning("Veuillez entrer la marge en haut du billet")
             else:
                 pred, proba = predict(model, length, margin_low, margin_up)
                 if pred:
